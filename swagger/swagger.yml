@@ -1,0 +1,81 @@
+swagger: "2.0"
+info:
+  title: 爱数商城
+  description: 开发一个简单的demo
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /goods
+paths:
+  /goods/goods:
+    get:
+      tags:
+      - goods
+      description: 2019/3/20:6:33 PM Fuzz 获取商品列表
+      operationId: GoodsController.商品列表
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: 错误提示
+    put:
+      tags:
+      - goods
+      description: 2019/3/20:6:33 PM Fuzz 编辑商品
+      operationId: GoodsController.编辑商品
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: 错误提示
+    post:
+      tags:
+      - goods
+      description: 2019/3/20:6:33 PM Fuzz 添加商品
+      operationId: GoodsController.添加商品
+      parameters:
+      - in: header
+        name: token
+        description: 用户标识符
+        required: true
+        type: string
+      - in: formData
+        name: goodsName
+        description: 商品名称
+        required: true
+        type: string
+      - in: formData
+        name: price
+        description: 商品价格
+        required: true
+        type: integer
+        format: int64
+      - in: formData
+        name: stock
+        description: 商品库存
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "10":
+          description: 数据添加失败，请稍后重试
+        "200":
+          description: ""
+    delete:
+      tags:
+      - goods
+      description: "2019/3/20:6:33 PM Fuzz\t删除商品"
+      operationId: GoodsController.删除商品
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: 错误提示
+tags:
+- name: goods
+  description: |
+    商品模块
